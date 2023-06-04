@@ -1,0 +1,78 @@
+header {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+nav {
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: lightgray;
+  }
+}
+
+section {
+  margin-top: 10px;
+}
+
+#skills {
+  h2 {
+    animation: fadein 1s;
+  }
+
+  ul {
+    animation: slideup 1s;
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideup {
+    from {
+      transform: translate(0, -100px);
+    }
+    to {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+#services {
+  h2 {
+    animation: fadein 1s;
+  }
+
+  ul {
+    animation: slideup 1s;
+  }
+}
+
+#support {
+  h2 {
+    animation: fadein 1s;
+  }
+
+  ul {
+    animation: slideup 1s;
+  }
+}
+
+#social {
+  h2 {
+    animation: fadein 1s;
+  }
+
+  ul {
+    animation: slideup 1s;
+  }
+}
