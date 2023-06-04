@@ -1,51 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="/b-demo/style.css">
-<title>Fundraiser Page</title>
+<title>Fundraiser</title>
+<link rel="stylesheet" href="/b-demo/style.css">
 </head>
 <body>
-<h1>Fundraiser Page</h1>
-<p>This is a fundraiser page for [cause].</p>
-<form action="donate.php" method="post">
-<input type="text" name="name" placeholder="Your Name">
-<input type="text" name="email" placeholder="Your Email">
-<input type="number" name="amount" placeholder="Amount to Donate">
+<div id="main">
+<h1>Fundraiser</h1>
+<p>Help raise money for a good cause!</p>
+<form action="/b-demo/donate.php" method="post">
+<input type="text" name="name" placeholder="Your name">
+<input type="text" name="email" placeholder="Your email">
+<input type="number" name="amount" placeholder="Donation amount">
 <input type="submit" value="Donate">
 </form>
-  <script>
-    // This function will be called when the user submits the donation form
-function donate() {
-  // Get the values from the form
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
-  var amount = document.getElementById("amount").value;
-
-  // Validate the values
-  if (name === "" || email === "" || amount === "") {
-    alert("Please enter all required information.");
-    return;
-  }
-
-  // Send the donation to the server
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "donate.php");
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.send("name=" + name + "&email=" + email + "&amount=" + amount);
-
-  // Redirect the user to a confirmation page
-  xhr.onload = function() {
-    if (xhr.status === 200) {
-      window.location.href = "confirmation.html";
-    } else {
-      alert("An error occurred. Please try again later.");
-    }
-  };
-}
-
-// When the page loads, add an event listener to the donate button
-document.getElementById("donate").addEventListener("click", donate);
-
-  </script>
+</div>
 </body>
 </html>
