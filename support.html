@@ -14,6 +14,38 @@
 <input type="submit" value="Donate">
 </form>
   <script>
+    // This function will be called when the user submits the donation form
+function donate() {
+  // Get the values from the form
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var amount = document.getElementById("amount").value;
+
+  // Validate the values
+  if (name === "" || email === "" || amount === "") {
+    alert("Please enter all required information.");
+    return;
+  }
+
+  // Send the donation to the server
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "donate.php");
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.send("name=" + name + "&email=" + email + "&amount=" + amount);
+
+  // Redirect the user to a confirmation page
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      window.location.href = "confirmation.html";
+    } else {
+      alert("An error occurred. Please try again later.");
+    }
+  };
+}
+
+// When the page loads, add an event listener to the donate button
+document.getElementById("donate").addEventListener("click", donate);
+
   </script>
 </body>
 </html>
